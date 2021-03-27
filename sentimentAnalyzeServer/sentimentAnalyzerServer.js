@@ -77,7 +77,7 @@ app.get("/text/emotion", (req,res) => {
     }
     getNLUInstance().analyze(analyzeParamsEmotion).then(analysisResults => {
         console.log(JSON.stringify(analysisResults, null, 2));
-        res.send(analysisResults.result.emotion.document.emotion);
+        return res.send(analysisResults.result.emotion.document.emotion);
     })
     .catch(err => {
         console.log('error:', err);
